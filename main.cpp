@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include "Collision.h"
 #include <iostream>
 #include <stdio.h>
 #include "main.h"
@@ -107,10 +108,9 @@ int main() {
 		}
 
 		
-		if (((obstacleX <= playerX) || (obstacleX <= (playerX + 72)))
-		&& ((obstacleX + 25 >= playerX) || ((obstacleX + 25) >= (playerX + 72)))) {
-			failed = true;
-		}	
+		if (Collision::BoundingBoxTest(player, obstacle)) {
+			fail = true;
+		}
 	
 		
 
